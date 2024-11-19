@@ -12,7 +12,7 @@ auto initialize = []() {
     return 0;
 }();
 
-void mysh_loop();
+void mysh_loop(std::string& s);
 char* mysh_readLine();
 char** mysh_splitLine(char*);
 int mysh_execute(char**);
@@ -24,19 +24,22 @@ The shell will be so simple that there won’t be any configuration files, and t
 So, we’ll just call the looping function and then terminate.*/
 int main(int argc, char ** argv)
 {
-    mysh_loop();
+    std::string s ="";
+    std::cout<<"Welcome to your custom shell !!!\nPlease enter your username\t";
+    getline(std::cin, s);
+    mysh_loop(s);
     return EXIT_SUCCESS;
 }
 
 
-void mysh_loop()
+void mysh_loop(std::string& s)
 {
     char *line;
     char **args;
     int status;
 
     do{
-        std::cout<<">";
+        std::cout<<s<<"$->";
         line = mysh_readLine();
         args = mysh_splitLine(line);
         status = mysh_execute(args);
