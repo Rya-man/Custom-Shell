@@ -96,7 +96,7 @@ char** mysh_splitLine(char* line)
   char *token;
 
   if (!tokens) {
-    fprintf(stderr, "lsh: allocation error\n");
+    fprintf(stderr, "mysh: allocation error\n");
     exit(EXIT_FAILURE);
   }
 
